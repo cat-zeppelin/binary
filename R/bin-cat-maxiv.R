@@ -19,5 +19,3 @@ bin_cat_maxiv <- function(x, y, w, p, ...) {
 
     # merge
 }
-
-x, y, w, method, p, ...
