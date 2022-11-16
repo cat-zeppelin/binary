@@ -18,11 +18,14 @@ do_num_binning <- function(x, y, w, method, p, ...) {
     )
 
     bin$cut_points <- c(-Inf, bin$cut_points, Inf) |> unique() |> sort()
-
-    # TODO: implement normal NA handling
-    bin$na_bin <- 0
+    bin$na_bin <- set_na_bin(x, y, w, bin)
 
     bin
+}
+
+
+set_na_bin <- function(x, y, w, bin) {
+    as_numeric(NA)
 }
 
 
