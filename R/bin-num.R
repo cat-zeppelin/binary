@@ -18,14 +18,28 @@ do_num_binning <- function(x, y, w, method, p, ...) {
     )
 
     bin$cut_points <- c(-Inf, bin$cut_points, Inf) |> unique() |> sort()
-    bin$na_bin <- set_na_bin(x, y, w, bin)
+    bin$na_bin <- set_na_bin(x, y, w, p, bin)
 
     bin
 }
 
 
-set_na_bin <- function(x, y, w, bin) {
-    as_numeric(NA)
+set_na_bin <- function(x, y, w, p, bin) {
+
+    if (mean(is_na(x)) >= p) {
+        retrun(0)
+    }
+
+    i <- !is_na(x)
+    x <- x[i]
+    y <- y[i]
+    w <- w[i]
+    x <- cut(x, bin$cut_points, labels = FALSE)
+
+    wt <- woe_table(x, y, w)
+
+    na_bin <- wt$x[which_max(wt$p_rate)]
+    na_bin
 }
 
 
