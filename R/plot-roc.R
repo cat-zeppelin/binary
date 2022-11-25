@@ -25,7 +25,8 @@ plot_roc <- function(roc) {
             color = "grey"
         ) +
         labs(
-            title = glue("ROC Curve, AUC = {auc}, Gini = {gini}"),
+            title = glue("ROC Curve"),
+            subtitle = glue("AUC = {auc}, Gini = {gini}"),
             x = "False Positive Rate",
             y = "True Positive Rate"
         ) +
@@ -35,10 +36,4 @@ plot_roc <- function(roc) {
         )
 
     plot
-}
-
-
-#' @export
-plot.ROC <- function(roc) {
-    plot_roc(roc)
 }

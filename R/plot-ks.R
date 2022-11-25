@@ -3,55 +3,49 @@
 #' @importFrom tibble tibble
 #' @export
 plot_ks <- function(ks) {
-    df <- bind_rows(
-        tibble(label = "Negative CDF", x = ks$score, y = ks$N_CDF),
-        tibble(label = "Positive CDF", x = ks$score, y = ks$P_CDF),
-    )
-
-    at <- ks$at
-    ks <- round(100 * ks$KS, 1)
-
     plot <- ggplot() +
         geom_line(
-            mapping = aes(x = x, y = y, color = label),
-            data = df,
+            mapping = aes(x = x, y = y, color = "Positive"),
+            data = tibble(x = ks$score, y = ks$P_CDF),
             size = 1
         ) +
         geom_line(
-            mapping = aes(x = x, y = y),
-            data = tibble(x = at, y = c(0, 1)),
+            mapping = aes(x = x, y = y, color = "Negative"),
+            data = tibble(x = ks$score, y = ks$N_CDF),
+            size = 1
+        ) +
+        geom_vline(
+            xintercept = ks$at,
             linetype = "dashed",
             color = "grey"
         ) +
         geom_ribbon(
-            mapping = aes(x = x, ymin = N_CDF, ymax = P_CDF),
-            data = df |> group_by(x) |> summarise(N_CDF = min(y), P_CDF = max(y)),
+            mapping = aes(x = x, ymin = ymin, ymax = ymax),
+            data = tibble(
+                x = ks$score,
+                ymin = pmin(ks$N_CDF, ks$P_CDF),
+                ymax = pmax(ks$N_CDF, ks$P_CDF)
+            ),
             fill = "#01bfc4",
             alpha = 0.1
         ) +
         labs(
-            title = glue("Negative and Positive CDF, K-S = {ks} @ {at}"),
+            title = glue("Score Cumulative Distribution"),
+            subtitle = glue("K-S = {round(100 * ks$KS, 1)} @ {ks$at}"),
             x = "Score",
-            y = "Probability, %"
+            y = "Distribution"
         ) +
         theme_light() +
         theme(
-            legend.background = element_rect(
-                fill = "white",
-                size = 0.3,
-                linetype = "solid",
-                color = "grey"
-            ),
-            legend.position = c(0.2, 0.85),
+            legend.background = element_blank(),
+            legend.position = c(0.15, 0.9),
             legend.title = element_blank(),
             plot.title = element_text(face = "bold")
+        ) +
+        scale_color_manual(
+            breaks = c("Positive", "Negative"),
+            values = c("Positive" = "#f8766d", "Negative" = "#01bfc4")
         )
 
     plot
-}
-
-
-#' @export
-plot.KS <- function(ks) {
-    plot_ks(ks)
 }
