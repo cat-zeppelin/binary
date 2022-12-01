@@ -2,6 +2,10 @@
 #' @import nodots
 #' @export
 do_binning <- function(x, y = NULL, w = NULL, method = NULL, ...) {
+    if (is_null(w)) {
+        w <- rep(1, length(x))
+    }
+
     if (is_numeric(x)) {
         bin <- do_bin_num(x, y, w, method, ...)
     } else {
@@ -14,11 +18,10 @@ do_binning <- function(x, y = NULL, w = NULL, method = NULL, ...) {
 #' Binary
 #' @export
 doply_binning <- function(x, y = NULL, w = NULL, method = NULL, ...) {
-    bin <- do_binning(x, y, w, mehtod, ...)
+    bin <- do_binning(x, y, w, method, ...)
     x <- apply_binning(x, bin)
     x
 }
-
 
 
 #' Binary

@@ -1,3 +1,4 @@
+#' @export
 do_bin_num <- function(x, y, w, method, ...) {
     bin <- switch(
         method,
@@ -12,4 +13,16 @@ do_bin_num <- function(x, y, w, method, ...) {
         sort()
 
     bin
+}
+
+
+apply_bin_num <- function(x, bin, labels = NULL) {
+    x <- cut(x, bin$cut_points, labels = FALSE)
+    x[is_na(x)] <- bin$na_bin
+
+    if (!is_null(labels)) {
+        x <- labels[x]
+    }
+
+    x
 }
