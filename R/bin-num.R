@@ -1,16 +1,3 @@
-#' Binary
-#' @import nodots
-#' @export
-do_binning <- function(x, y = NULL, w = NULL, method = NULL, ...) {
-    if (is_numeric(x)) {
-        bin <- do_bin_num(x, y, w, method, ...)
-    } else {
-        bin <- do_bin_cat(x, y, w, method, ...)
-    }
-    bin
-}
-
-
 do_bin_num <- function(x, y, w, method, ...) {
     bin <- switch(
         method,
@@ -26,11 +13,3 @@ do_bin_num <- function(x, y, w, method, ...) {
 
     bin
 }
-
-
-do_bin_cat <- function(x, y, w, method, ...) {
-    NULL
-}
-
-
-
