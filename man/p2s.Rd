@@ -2,10 +2,10 @@
 % Please edit documentation in R/everything.R
 \name{p2s}
 \alias{p2s}
-\title{Probability To Score}
+\title{Probability to Score}
 \usage{
 p2s(p, score = 660, odds = 72, pdo = 40)
 }
 \description{
-Probability To Score
+Probability to Score
 }

@@ -1,3 +1,5 @@
+#' Precision-Recall
+#' @export
 precision_recall <- function(p, y, w = NULL) {
     cm <- confusion_matrix(p, y, w, desc = TRUE)
 

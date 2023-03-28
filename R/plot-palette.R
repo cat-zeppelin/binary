@@ -1,4 +1,4 @@
-#' Ggplot Palette
+#' `ggplot` Palette
 #' @export
 plot_palette <- function(i) {
     colors <- c(

@@ -2,10 +2,10 @@
 % Please edit documentation in R/everything.R
 \name{s2p}
 \alias{s2p}
-\title{Score To Probability}
+\title{Score to Probability}
 \usage{
 s2p(s, score = 660, odds = 72, pdo = 40)
 }
 \description{
-Score To Probability
+Score to Probability
 }
