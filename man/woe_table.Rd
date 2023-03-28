@@ -2,10 +2,10 @@
 % Please edit documentation in R/woe-table.R
 \name{woe_table}
 \alias{woe_table}
-\title{Binary}
+\title{WoE Table}
 \usage{
 woe_table(x, y, w = NULL)
 }
 \description{
-Binary
+WoE Table
 }

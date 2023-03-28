@@ -1,4 +1,4 @@
-#' Binary
+#' WoE Table
 #' @export
 woe_table <- function(x, y, w = NULL) {
     wt <- TPN(x, y, w)

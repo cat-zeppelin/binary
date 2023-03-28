@@ -1,4 +1,4 @@
-#' Binary
+#' Total, Positive, and Negative Pivot Table
 #' @export
 TPN <- function(x, y, w = NULL) {
     w <- if_null(w, rep(1, length(x)))
@@ -6,8 +6,7 @@ TPN <- function(x, y, w = NULL) {
     tpn
 }
 
-#' Binary
-#' @export
+
 tpn_dplyr <- function(x, y, w) {
     df <- tibble(x, y, w) |>
         group_by(x) |>

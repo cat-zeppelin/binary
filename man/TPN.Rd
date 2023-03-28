@@ -2,10 +2,10 @@
 % Please edit documentation in R/tpn.R
 \name{TPN}
 \alias{TPN}
-\title{Binary}
+\title{Total, Positive, and Negative Pivot Table}
 \usage{
 TPN(x, y, w = NULL)
 }
 \description{
-Binary
+Total, Positive, and Negative Pivot Table
 }
