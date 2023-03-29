@@ -10,7 +10,7 @@ plot_mcc <- function(cm, palette = default_palette()) {
 
     max_mcc <- max(mcc)
     max_mcc <- round(100 * max_mcc, 1)
-    at <- s[which_max(mcc)]
+    at <- x[which_max(mcc)]
 
     plot <- ggplot() +
         geom_line(
