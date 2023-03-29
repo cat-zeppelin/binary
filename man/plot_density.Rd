@@ -4,7 +4,7 @@
 \alias{plot_density}
 \title{Density}
 \usage{
-plot_density(s, y = NULL)
+plot_density(s, y = NULL, palette = default_palette())
 }
 \description{
 Density

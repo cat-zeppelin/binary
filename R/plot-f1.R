@@ -1,6 +1,6 @@
 #' F1 Score
 #' @export
-plot_f1 <- function(cm) {
+plot_f1 <- function(cm, palette = default_palette()) {
     # model f1 score
 
     x <- cm$Cutoff
@@ -67,13 +67,13 @@ plot_f1 <- function(cm) {
             plot.title = element_text(face = "bold")
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
             values = c(
-                "F1" = plot_palette(1),
-                "F0" = plot_palette(5),
-                "At" = plot_palette(5)
+                "F1" = palette[1],
+                "F0" = palette[5],
+                "At" = palette[5]
             )
         )
 

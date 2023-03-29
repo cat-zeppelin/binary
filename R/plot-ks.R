@@ -1,13 +1,13 @@
 #' Kolmogorov-Smirnov
 #' @export
-plot.KS <- function(ks) {
-    plot_ks(ks)
+plot.KS <- function(ks, palette = default_palette()) {
+    plot_ks(ks, palette)
 }
 
 
 #' Kolmogorov-Smirnov
 #' @export
-plot_ks <- function(ks) {
+plot_ks <- function(ks, palette = default_palette()) {
     s <- ks$score
     p_cdf <- ks$positive_cdf
     n_cdf <- ks$negative_cdf
@@ -64,13 +64,13 @@ plot_ks <- function(ks) {
             legend.position = "none"
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
             values = c(
-                "Negative" = plot_palette(1),
-                "Positive" = plot_palette(2),
-                "At" = plot_palette(5)
+                "Negative" = palette[1],
+                "Positive" = palette[2],
+                "At" = palette[5]
             )
         )
 

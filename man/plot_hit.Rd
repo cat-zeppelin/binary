@@ -4,7 +4,7 @@
 \alias{plot_hit}
 \title{Positive Rate vs Score}
 \usage{
-plot_hit(s, y, n = 5)
+plot_hit(s, y, n = 5, palette = default_palette())
 }
 \description{
 Positive Rate vs Score

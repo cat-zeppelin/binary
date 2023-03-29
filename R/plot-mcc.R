@@ -1,6 +1,6 @@
 #' Matthews Correlation Coefficient
 #' @export
-plot_mcc <- function(cm) {
+plot_mcc <- function(cm, palette = default_palette()) {
     x <- cm$Cutoff
     mcc <- cm$MCC
 
@@ -49,10 +49,10 @@ plot_mcc <- function(cm) {
             plot.title = element_text(face = "bold")
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
-            values = c("Color" = plot_palette(1), "At" = plot_palette(5))
+            values = c("Color" = palette[1], "At" = palette[5])
         )
 
     plot

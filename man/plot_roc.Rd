@@ -4,7 +4,7 @@
 \alias{plot_roc}
 \title{Receiver Operating Characteristic}
 \usage{
-plot_roc(roc)
+plot_roc(roc, palette = default_palette())
 }
 \description{
 Receiver Operating Characteristic

@@ -4,7 +4,7 @@
 \alias{plot_ks}
 \title{Kolmogorov-Smirnov}
 \usage{
-plot_ks(ks)
+plot_ks(ks, palette = default_palette())
 }
 \description{
 Kolmogorov-Smirnov

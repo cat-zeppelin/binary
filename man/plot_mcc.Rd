@@ -4,7 +4,7 @@
 \alias{plot_mcc}
 \title{Matthews Correlation Coefficient}
 \usage{
-plot_mcc(cm)
+plot_mcc(cm, palette = default_palette())
 }
 \description{
 Matthews Correlation Coefficient

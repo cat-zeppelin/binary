@@ -4,7 +4,7 @@
 \alias{plot.PrecisionRecall}
 \title{Precision-Recall}
 \usage{
-\method{plot}{PrecisionRecall}(pr)
+\method{plot}{PrecisionRecall}(pr, palette = default_palette())
 }
 \description{
 Precision-Recall

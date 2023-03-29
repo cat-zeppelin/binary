@@ -1,13 +1,13 @@
 #' Precision-Recall
 #' @export
-plot.PrecisionRecall <- function(pr) {
-    plot_precision_recall(pr)
+plot.PrecisionRecall <- function(pr, palette = default_palette()) {
+    plot_precision_recall(pr, palette)
 }
 
 
 #' Precision-Recall
 #' @export
-plot_precision_recall <- function(pr) {
+plot_precision_recall <- function(pr, palette = default_palette()) {
     recall <- pr$recall
     precision <- pr$precision
     auc <- pr$AUC
@@ -51,10 +51,10 @@ plot_precision_recall <- function(pr) {
             legend.position = "none"
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
-            values = c("PR" = plot_palette(1), "PR0" = plot_palette(5))
+            values = c("PR" = palette[1], "PR0" = palette[5])
         )
 
     plot

@@ -1,13 +1,13 @@
 #' Receiver Operating Characteristic
 #' @export
-plot.ROC <- function(roc) {
-    plot_roc(roc)
+plot.ROC <- function(roc, palette = default_palette()) {
+    plot_roc(roc, palette)
 }
 
 
 #' Receiver Operating Characteristic
 #' @export
-plot_roc <- function(roc) {
+plot_roc <- function(roc, palette = default_palette()) {
     auc <- round(100 * roc$AUC, 1)
     gini <- round(100 * roc$Gini, 1)
 
@@ -39,10 +39,10 @@ plot_roc <- function(roc) {
             legend.position = "none"
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
-            values = c("ROC" = plot_palette(1), "ROC0" = plot_palette(5))
+            values = c("ROC" = palette[1], "ROC0" = palette[5])
         )
 
     plot

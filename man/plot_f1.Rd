@@ -4,7 +4,7 @@
 \alias{plot_f1}
 \title{F1 Score}
 \usage{
-plot_f1(cm)
+plot_f1(cm, palette = default_palette())
 }
 \description{
 F1 Score

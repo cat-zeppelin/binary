@@ -1,6 +1,6 @@
 #' Positive Rate vs Score
 #' @export
-plot_hit <- function(s, y, n = 5) {
+plot_hit <- function(s, y, n = 5, palette = default_palette()) {
     wt <- doply_binning(s, method = "equal", n = n) |>
         woe_table(y)
 
@@ -11,7 +11,7 @@ plot_hit <- function(s, y, n = 5) {
             alpha = 0.2
         ) +
         geom_label(
-            aes(label = str_c(round(100 * PositiveRate, 1), "%")),
+            aes(label = glue("{round(100 * PositiveRate, 1)}%")),
             vjust = -0.3
         ) +
         labs(
@@ -27,10 +27,10 @@ plot_hit <- function(s, y, n = 5) {
             plot.title = element_text(face = "bold")
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
-            values = c("Color" = plot_palette(1))
+            values = c("Color" = palette[1])
         )
 
     plot

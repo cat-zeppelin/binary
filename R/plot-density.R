@@ -1,18 +1,16 @@
 #' Density
 #' @export
-plot_density <- function(s, y = NULL) {
+plot_density <- function(s, y = NULL, palette = default_palette()) {
     if (is_null(y)) {
-        plot <- plot_total_density(s)
+        plot <- plot_total_density(s, palette)
     } else {
-        plot <- plot_pn_density(s, y)
+        plot <- plot_pn_density(s, y, palette)
     }
     plot
 }
 
 
-#' Density
-#' @export
-plot_total_density <- function(s) {
+plot_total_density <- function(s, palette) {
     m <- moments(s)
 
     plot <- ggplot() +
@@ -28,7 +26,7 @@ plot_total_density <- function(s) {
             linetype = "dashed"
         ) +
         labs(
-            title = "Score Density, Total",
+            title = "Score Density",
             subtitle = glue("Mean = {round(m$mean, 1)}, SD = {round(m$sd, 1)}, Skewness = {round(m$skewness, 2)}"),
             x = "Score",
             y = "Density"
@@ -39,19 +37,17 @@ plot_total_density <- function(s) {
             plot.title = element_text(face = "bold")
         ) +
         scale_fill_manual(
-            values = c("Fill" = plot_palette(1))
+            values = c("Fill" = palette[1])
         ) +
         scale_color_manual(
-            values = c("Color" = plot_palette(1))
+            values = c("Color" = palette[1])
         )
 
     plot
 }
 
 
-#' Density
-#' @export
-plot_pn_density <- function(s, y) {
+plot_pn_density <- function(s, y, palette) {
     p_mean <- mean(s[y])
     n_mean <- mean(s[!y])
 
@@ -91,14 +87,14 @@ plot_pn_density <- function(s, y) {
         ) +
         scale_fill_manual(
             values = c(
-                "Negative" = plot_palette(1),
-                "Positive" = plot_palette(2)
+                "Negative" = palette[1],
+                "Positive" = palette[2]
             )
         ) +
         scale_color_manual(
             values = c(
-                "Negative" = plot_palette(1),
-                "Positive" = plot_palette(2)
+                "Negative" = palette[1],
+                "Positive" = palette[2]
             )
         )
 
