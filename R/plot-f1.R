@@ -38,7 +38,7 @@ plot_f1 <- function(cm) {
             linetype = "dashed"
         ) +
         geom_ribbon(
-            mapping = aes(x = x, ymin = ymin, ymax = ymax, color = "Fill"),
+            mapping = aes(x = x, ymin = ymin, ymax = ymax, fill = "Fill"),
             data = tibble(
                 x,
                 ymin = f0,
@@ -63,6 +63,7 @@ plot_f1 <- function(cm) {
         ylab("F1 Score") +
         theme_light() +
         theme(
+            legend.position = "none",
             plot.title = element_text(face = "bold")
         ) +
         scale_fill_manual(

@@ -25,8 +25,7 @@ plot_precision_recall <- function(pr) {
         geom_line(
             mapping = aes(x = Recall, y = Precision, color = "PR"),
             data = tibble(Recall = recall, Precision = precision),
-            linewidth = 1,
-            color = c1
+            linewidth = 1
         ) +
         geom_line(
             mapping = aes(x = recall, y = mean_y, color = "PR0"),

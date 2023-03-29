@@ -45,6 +45,7 @@ plot_mcc <- function(cm) {
         ylab("MCC") +
         theme_light() +
         theme(
+            legend.position = "none",
             plot.title = element_text(face = "bold")
         ) +
         scale_fill_manual(
