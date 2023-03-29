@@ -26,13 +26,17 @@ s <- df_data$score
 y <- as_logical(df_data$target)
 p <- s2p(s)
 
+cm <- confusion_matrix(s, y, desc = FALSE)
 roc <- ROC(p, y)
 ks <- kolmogorov_smirnov(s, y)
+pr <- precision_recall(p, y)
 
-plot_density(s) + plot_density(s, y) + plot_roc(roc) + plot_ks(ks)
+p <- (plot_density(s) | plot_density(s, y) | plot_hit(s, y) | plot_precision_recall(pr)) /
+    (plot_roc(roc) | plot_ks(ks) | plot_f1(cm) | plot_mcc(cm))
+p
 
 # Save the plot if need
-# ggsave("plot.png", width = 9, height = 8, units = "in")
+# ggsave("plot.png", p, width = 18, height = 8, units = "in")
 ```
+![plot](https://user-images.githubusercontent.com/7435943/228507251-80c2d40f-b59d-43c1-b908-baf42f2a1068.png)
 
-![image](https://user-images.githubusercontent.com/7435943/228504807-d952fc75-814c-4a78-867d-6b3dd0675015.png)
