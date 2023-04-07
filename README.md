@@ -2,7 +2,7 @@
 
 ## Overview
 
-The package contains a set of functions for discretization and vizualization that may help in developing credit scorecrds in particular and binary classification in general.
+The package is a set of functions for discretization and vizualization that may help in developing credit scorecrds in particular and binary classification in general.
 
 ## Installation
 
