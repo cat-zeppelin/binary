@@ -12,6 +12,11 @@ The package can be installed via `devtools`
 devtools::install_github("cat-zeppelin/binary")
 ```
 
+Because of poor (no) dependency management please also install `nodots` package.
+``` r
+devtools::install_github("cat-zeppelin/nodots")
+```
+
 ## Usage
 
 ![plot](https://user-images.githubusercontent.com/7435943/228567142-7c258865-6d07-4c53-8b43-0810c339e8dc.png)
