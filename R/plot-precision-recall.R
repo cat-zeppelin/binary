@@ -33,10 +33,10 @@ plot_precision_recall <- function(pr, palette = default_palette()) {
             linetype = "dashed"
         ) +
         geom_ribbon(
-            mapping = aes(x = x, ymin = mean(y), ymax = ymax, fill = "Fill"),
+            mapping = aes(x = x, ymin = ymin, ymax = ymax, fill = "Fill"),
             data = tibble(
                 x = recall,
-                ymin = mean(y),
+                ymin = mean_y,
                 ymax = precision
             ),
             alpha = 0.1
